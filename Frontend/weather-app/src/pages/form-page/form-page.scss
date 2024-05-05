@@ -1,24 +1,22 @@
-.formPage {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+// height: 100%;
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
+// align-items: center;
 
-    .info-section {
-        .info-section__title {
-            text-align: center;
-        }
+.info-section {
+    .info-section__title {
+        text-align: center;
     }
+}
 
-    .form {
-        flex-grow: 1;
-        form {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-        }
+.form {
+    //flex-grow: 1;
+    form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
     }
 }

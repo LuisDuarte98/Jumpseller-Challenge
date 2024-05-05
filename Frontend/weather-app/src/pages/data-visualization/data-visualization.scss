@@ -1,0 +1,20 @@
+.table-section {
+    .table {
+        .table__head {
+            th {
+                text-align: right;
+            }
+            .head__date {
+                text-align: center !important;
+            }
+        }
+        .table__body {
+            td {
+                text-align: right;
+            }
+            .body__date {
+                text-align: center !important;
+            }
+        }
+    }
+}

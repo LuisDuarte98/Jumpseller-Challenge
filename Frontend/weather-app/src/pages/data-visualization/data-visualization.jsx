@@ -11,6 +11,7 @@ import {
     Legend,
 } from "recharts";
 import { format } from "date-fns";
+import "./data-visualization.scss";
 
 function DataVisualization() {
     const routerInfo = useLocation();
@@ -71,29 +72,32 @@ function DataVisualization() {
             </div>
             <div className="table-section">
                 <table className="table">
-                    <thead>
+                    <thead className="table__head">
                         <tr>
-                            <th>Date</th>
+                            <th className="head__date">Date</th>
                             <th>Max temperature (°C)</th>
                             <th>Min temperature (°C)</th>
                             <th>Precipitation sum (mm)</th>
                             <th>Daylight duration (sec)</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="table__body">
                         {data?.daily.time.map((x, i) => {
                             return (
                                 <tr>
-                                    <td>{x}</td>
+                                    <td className="body__date">{x}</td>
                                     <td>{data.daily.temperature_2m_min[i]}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{data.daily.temperature_2m_max[i]}</td>
+                                    <td>{data.daily.precipitation_sum[i]}</td>
+                                    <td>{data.daily.daylight_duration[i]}</td>
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
+            </div>
+            <div>
+                <button className="btn btn-danger">Go back</button>
             </div>
         </>
     );
