@@ -1,4 +1,4 @@
-# Client README
+# Client App
 
 ## Setup
 ### Need to have installed Node and npm
