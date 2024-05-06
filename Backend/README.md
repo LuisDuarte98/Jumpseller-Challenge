@@ -4,7 +4,8 @@
 ### Need to have installed Ruby, Ruby on Rails, SQLite3
 ### To run the project you need to have a cmd into the weatherAPI folder and run the following commands:
 1. bundle install -> In order to install all the gems dependencies
-2. ruby bin\rails server -> In order to boot up the server
+2. rails db:migrate -> In order to create the database model 
+3. ruby bin\rails server -> In order to boot up the server
 
 ## What have i made?
 ### Defined a model to store the weather information
