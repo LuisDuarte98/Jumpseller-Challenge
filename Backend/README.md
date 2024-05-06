@@ -1,4 +1,4 @@
-# Server README
+# Server
 
 ## Setup (Windows)
 ### Need to have installed Ruby, Ruby on Rails, SQLite3
