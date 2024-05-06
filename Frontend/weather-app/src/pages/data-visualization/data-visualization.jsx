@@ -35,11 +35,8 @@ function DataVisualization() {
             <div className="general-info">
                 <p>
                     Here you can visualise the most pertinent data about the
-                    weather in{" "}
-                    <b>
-                        {data.location} between {data.startDate} and{" "}
-                        {data.endDate}
-                    </b>
+                    weather in <b>{data.location} </b>between{" "}
+                    <b>{data.startDate}</b> and <b>{data.endDate}</b>
                 </p>
             </div>
             <div className="chart-section">
