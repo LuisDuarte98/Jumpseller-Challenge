@@ -40,7 +40,11 @@ function DataVisualization() {
     }, [location, startDate, endDate]);
 
     if (!data) {
-        return <>Loading..</>;
+        return (
+            <>
+                <p>Loading...</p>
+            </>
+        );
     }
     return (
         <>
@@ -103,7 +107,7 @@ function DataVisualization() {
                 </table>
             </div>
             <div>
-                <button className="btn btn-danger">Go back</button>
+                <button className="btn btn-danger button">Go back</button>
             </div>
         </>
     );

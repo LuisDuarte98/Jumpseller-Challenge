@@ -50,4 +50,11 @@
             background-color: $dark-blue;
         }
     }
+
+    .form__required-fields {
+        opacity: 0.8;
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: 5px;
+    }
 }

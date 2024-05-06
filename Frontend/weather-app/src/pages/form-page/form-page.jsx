@@ -64,7 +64,22 @@ function FormPage() {
                             }}
                         />
                     </div>
-                    <button type="submit" className="button button--ok">
+                    <div className="form__required-fields">
+                        <span>
+                            (All the fields presented above are required)
+                        </span>
+                    </div>
+                    <button
+                        type="submit"
+                        className="button button--ok"
+                        disabled={
+                            // !formData[location] ||
+                            // formData[location] === "" ||
+                            // !formDate[startDate] ||
+                            // !formData[endDate]
+                            false
+                        }
+                    >
                         Visualise data
                     </button>
                 </form>

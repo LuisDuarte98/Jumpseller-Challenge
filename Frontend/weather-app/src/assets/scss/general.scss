@@ -11,6 +11,12 @@
     border-radius: 5px;
     border: none;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 input {
