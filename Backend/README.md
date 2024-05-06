@@ -8,6 +8,13 @@
 
 ## What have i made?
 ### Defined a model to store the weather information
+      t.string :location
+      t.date :date
+      t.float :max_temperature
+      t.float :min_temperature
+      t.float :precipitation
+      t.integer :daylight_duration
+      t.timestamps
 ### Defined a route and a controller to retrieve weather information, with the following algorithm:
 1. It accepts as parameters the location (e.g Lisbon), a start date and an end date
 2. First checks if there is all the necessary records already in the database
