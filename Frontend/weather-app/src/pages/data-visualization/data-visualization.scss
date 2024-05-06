@@ -1,3 +1,11 @@
+@import "../../assets/scss/resources.scss";
+
+.general-info {
+    p {
+        margin-bottom: 0 !important;
+    }
+}
+
 .table-section {
     .table {
         .table__head {
@@ -15,6 +23,12 @@
             .body__date {
                 text-align: center !important;
             }
+        }
+        th,
+        td {
+            background-color: $base-grey;
+            color: $light-grey-2;
+            border-color: $light-grey-1;
         }
     }
 }

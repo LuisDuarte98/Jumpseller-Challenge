@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./form-page.scss";
+import "../../assets/scss/general.scss";
 
 function FormPage() {
     const { register, handleSubmit, control } = useForm();
@@ -19,7 +20,7 @@ function FormPage() {
     return (
         <>
             <div className="info-section">
-                <img src="./../../../public/Logo.png" />
+                <img src="logo.png" />
                 <h2 className="info-section__title">Welcome to Weather App</h2>
                 <p>
                     Here you can visualise the most pertinent data about the
@@ -29,13 +30,13 @@ function FormPage() {
 
             <div className="form">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div>
+                    <div className="form__location">
                         <input
                             {...register("location")}
                             placeholder="Location"
                         />
                     </div>
-                    <div>
+                    <div className="form__date">
                         <Controller
                             name={"startDate"}
                             control={control}
@@ -63,8 +64,8 @@ function FormPage() {
                             }}
                         />
                     </div>
-                    <button type="submit" className="btn btn-outline-info">
-                        Visualize!
+                    <button type="submit" className="button button--ok">
+                        Visualise data
                     </button>
                 </form>
             </div>

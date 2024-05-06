@@ -44,6 +44,12 @@ function DataVisualization() {
     }
     return (
         <>
+            <div className="general-info">
+                <p>
+                    Here you can visualise the most pertinent data about the
+                    weather in <b>{location}</b>
+                </p>
+            </div>
             <div className="chart-section">
                 <LineChart
                     width={600}

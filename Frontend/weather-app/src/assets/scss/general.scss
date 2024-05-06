@@ -4,3 +4,17 @@
     Here it is defined some of the css global stylings classes,
     used to maintain the same styling throughout the app
 */
+
+.button {
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+input {
+    height: 35px;
+    border-radius: 5px;
+    font-weight: bold;
+}
