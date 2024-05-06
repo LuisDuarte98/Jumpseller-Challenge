@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { getWeatherInformation } from "../../api/weather.js";
+
 import {
     LineChart,
     Line,
@@ -11,33 +11,17 @@ import {
     Legend,
 } from "recharts";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 import "./data-visualization.scss";
 
 function DataVisualization() {
     const routerInfo = useLocation();
-    const [data, setData] = useState();
-    const { location, startDate, endDate } = routerInfo.state;
-    const [aux, setAux] = useState([]);
+    const data = routerInfo.state;
 
-    useEffect(() => {
-        getWeatherInformation(location, startDate, endDate)
-            .then((response) => {
-                setData(response.data);
-                let aux2 = [];
-                response.data?.daily.time.map((x, i) => {
-                    aux2.push({
-                        minTemperature: data.daily.temperature_2m_min[i],
-                        maxTemperature: data.daily.temperature_2m_max[i],
-                        date: format(new Date(x), "dd/MMM"),
-                    });
-                });
-                setAux(aux2);
-                console.log(data?.daily.time);
-                console.log(aux);
-                console.log(aux2);
-            })
-            .catch((error) => console.error(error));
-    }, [location, startDate, endDate]);
+    const goTo = useNavigate();
+    const goBack = () => {
+        goTo("/");
+    };
 
     if (!data) {
         return (
@@ -51,14 +35,18 @@ function DataVisualization() {
             <div className="general-info">
                 <p>
                     Here you can visualise the most pertinent data about the
-                    weather in <b>{location}</b>
+                    weather in{" "}
+                    <b>
+                        {data.location} between {data.startDate} and{" "}
+                        {data.endDate}
+                    </b>
                 </p>
             </div>
             <div className="chart-section">
                 <LineChart
                     width={600}
                     height={400}
-                    data={aux}
+                    data={data.weatherData}
                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
@@ -68,13 +56,13 @@ function DataVisualization() {
                     <Legend />
                     <Line
                         type="monotone"
-                        dataKey="maxTemperature"
+                        dataKey="max_temperature"
                         stroke="#ff7300"
                         name="Max Temperature"
                     />
                     <Line
                         type="monotone"
-                        dataKey="minTemperature"
+                        dataKey="min_temperature"
                         stroke="#007bff"
                         name="Min Temperature"
                     />
@@ -92,14 +80,16 @@ function DataVisualization() {
                         </tr>
                     </thead>
                     <tbody className="table__body">
-                        {data?.daily.time.map((x, i) => {
+                        {data.weatherData.map((x, i) => {
                             return (
                                 <tr>
-                                    <td className="body__date">{x}</td>
-                                    <td>{data.daily.temperature_2m_min[i]}</td>
-                                    <td>{data.daily.temperature_2m_max[i]}</td>
-                                    <td>{data.daily.precipitation_sum[i]}</td>
-                                    <td>{data.daily.daylight_duration[i]}</td>
+                                    <td className="body__date">
+                                        {format(new Date(x.date), "dd/MMM")}
+                                    </td>
+                                    <td>{x.min_temperature}</td>
+                                    <td>{x.max_temperature}</td>
+                                    <td>{x.precipitation}</td>
+                                    <td>{x.daylight_duration}</td>
                                 </tr>
                             );
                         })}
@@ -107,7 +97,9 @@ function DataVisualization() {
                 </table>
             </div>
             <div>
-                <button className="btn btn-danger button">Go back</button>
+                <button className="btn btn-danger button" onClick={goBack}>
+                    Go back
+                </button>
             </div>
         </>
     );

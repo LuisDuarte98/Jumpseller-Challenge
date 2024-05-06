@@ -29,15 +29,12 @@
         }
 
         .form__date {
+            width: 100%;
+            .react-datepicker-wrapper,
+            input {
+                width: 100%;
+            }
             margin-top: 10px;
-
-            .react-datepicker-wrapper:first-child {
-                margin-right: 2.5px;
-            }
-
-            .react-datepicker-wrapper:last-child {
-                margin-left: 2.5px;
-            }
         }
 
         .button--ok {

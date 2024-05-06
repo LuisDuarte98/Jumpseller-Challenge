@@ -1,25 +1,14 @@
 import axios from "axios";
 
-const baseURL =
-    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,daylight_duration";
+const baseURL = process.env.REACT_APP_SERVER_URL;
 
 export function getWeatherInformation(location, startDate, endDate) {
     return axios({
         method: "get",
-        url: "",
+        url: `${baseURL}weather/forecast?location=${location}&start_date=${startDate}&end_date=${endDate}`,
         baseURL: baseURL,
         headers: {
             "Content-Type": "application/json",
         },
-        params: {
-            // location: location,
-            // startDate: startDate,
-            // endDate: endDate,
-        },
-        validateStatus: (status) => validateStatus(status),
     });
-}
-
-function validateStatus(status) {
-    return true;
 }
